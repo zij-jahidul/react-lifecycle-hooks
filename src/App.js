@@ -1,7 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-
 function App() {
   // let [count, setCount] = useState(0);
   // let [name, setName] = useState("");
@@ -13,8 +11,9 @@ function App() {
 
   let handleClick = () => {
     info.count++;
-    // oneWay
+    // one-way
     // setInfo({ ...info, count: info.count });
+    // two-way
     setInfo((prev) => ({
       ...prev,
       count: info.count,
@@ -23,7 +22,9 @@ function App() {
   };
 
   let handleChange = (e) => {
+    // one-way
     // setInfo({ ...info, name: e.target.value });
+    // two-way
     setInfo((prev) => ({
       ...prev,
       name: e.target.value,
@@ -33,6 +34,9 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        <h1>useState LifeCycle Hooks</h1>
+      </div>
       <input onChange={handleChange} />
       <h2>
         {info.name}: {info.count}
